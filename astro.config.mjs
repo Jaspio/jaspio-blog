@@ -6,30 +6,64 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://jaspio.net',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
 			provider: fontProviders.local(),
-			name: 'Atkinson',
-			cssVariable: '--font-atkinson',
+			name: 'Lato v23',
+			cssVariable: '--font-lato',
 			fallbacks: ['sans-serif'],
 			options: {
 				variants: [
 					{
-						src: ['./src/assets/fonts/atkinson-regular.woff'],
+						src: ['./src/assets/fonts/lato-v23-latin-regular.woff2'],
 						weight: 400,
 						style: 'normal',
 						display: 'swap',
 					},
 					{
-						src: ['./src/assets/fonts/atkinson-bold.woff'],
+						src: ['./src/assets/fonts/lato-v23-latin-700.woff2'],
 						weight: 700,
 						style: 'normal',
+						display: 'swap',
+					},
+					{
+						src: ['./src/assets/fonts/lato-v23-latin-italic.woff2'],
+						weight: 400,
+						style: 'italic',
+						display: 'swap',
+					},
+					{
+						src: ['./src/assets/fonts/lato-v23-latin-700italic.woff2'],
+						weight: 700,
+						style: 'italic',
 						display: 'swap',
 					},
 				],
 			},
 		},
+		{
+			provider: fontProviders.local(),
+			name: 'Raleway v27',
+			cssVariable: '--font-raleway',
+			fallbacks: ['sans-serif'],
+			options: {
+				variants: [
+					{
+						src: ['./src/assets/fonts/raleway-v27-latin-regular.woff2'],
+						weight: 400,
+						style: 'normal',
+						display: 'swap',
+					},
+					{
+						src: ['./src/assets/fonts/raleway-v27-latin-700.woff2'],
+						weight: 700,
+						style: 'normal',
+						display: 'swap',
+					},
+				],
+			}
+		}
 	],
 });
