@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { SITE_DESCRIPTION } from '../../consts';
+
+const tags = (await getCollection('tags')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<SiteLayout title="Tags" description={SITE_DESCRIPTION} mainClass="taxonomy-index">
+	<header class="taxonomy-header">
+		<h1>Tags</h1>
+	</header>
+	<ul class="taxonomy-list tag-index-list">
+		{tags.map((tag) => (
+			<li><a href={`/tag/${tag.id}/`}>{tag.data.name}</a></li>
+		))}
+	</ul>
+</SiteLayout>

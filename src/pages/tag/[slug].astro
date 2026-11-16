@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import TaxonomyArchive from '../../components/TaxonomyArchive.astro';
+import { SITE_DESCRIPTION } from '../../consts';
+
+export async function getStaticPaths() {
+	const [tags, posts] = await Promise.all([getCollection('tags'), getCollection('blog')]);
+
+	return tags.map((tag) => ({
+		params: { slug: tag.id },
+		props: {
+			term: tag.data.name,
+			posts: posts.filter((post) => post.data.tags.includes(tag.data.name)),
+		},
+	}));
+}
+
+const { term, posts } = Astro.props;
+---
+
+<SiteLayout title={term} description={SITE_DESCRIPTION} mainClass="archive-page">
+	<TaxonomyArchive term={term} kind="Tag" posts={posts} />
+</SiteLayout>

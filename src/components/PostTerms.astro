@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import { normalizeTaxonomyName } from '../utils/taxonomy';
+
+interface Props {
+	categories?: string[];
+	tags?: string[];
+}
+
+const { categories = [], tags = [] } = Astro.props;
+const [categoryEntries, tagEntries] = await Promise.all([
+	getCollection('categories'),
+	getCollection('tags'),
+]);
+
+const categoryLinks = categories.map((name) => {
+	const normalizedName = normalizeTaxonomyName(name);
+	const entry = categoryEntries.find((category) => category.data.name === normalizedName);
+	return { name: normalizedName, path: entry?.data.path };
+});
+
+const tagLinks = tags.map((name) => {
+	const normalizedName = normalizeTaxonomyName(name);
+	const entry = tagEntries.find((tag) => tag.data.name === normalizedName);
+	return { name: normalizedName, id: entry?.id };
+});
+---
+
+{(categoryLinks.length > 0 || tagLinks.length > 0) && (
+	<div class="post-terms">
+		{categoryLinks.length > 0 && (
+			<p class="post-categories">
+				<span>Categories:</span>{' '}
+				{categoryLinks.map((category, index) => (
+					<>
+						{index > 0 && ', '}
+						{category.path ? (
+							<a href={`/category/${category.path}/`} rel="category tag">{category.name}</a>
+						) : (
+						category.name
+						)}
+					</>
+				))}
+			</p>
+		)}
+		{tagLinks.length > 0 && (
+			<p class="post-tags">
+				<span>Tags:</span>{' '}
+				{tagLinks.map((tag, index) => (
+					<>
+						{index > 0 && ', '}
+						{tag.id ? <a href={`/tag/${tag.id}/`} rel="tag">{tag.name}</a> : tag.name}
+					</>
+				))}
+			</p>
+		)}
+	</div>
+)}

@@ -1,0 +1,25 @@
+---
+id: 27
+title: 'What&#8217;s On?'
+date: '2005-05-04T23:07:08+01:00'
+author: Jaspio
+excerpt: ''
+guid: 'http://www.jaspio.net/wordpress/archives/2005/05/04/whats-on-2/'
+permalink: /whats-on-2/
+categories:
+    - Browsing
+format: false
+---
+
+Another great link:  
+  
+I always enjoy reading the what's on sections of magazines: but they give you too little time to plan.  
+Here's the solution:   
+  
+[whatsonwhen.com](http://www.whatsonwhen.com/) "is dedicated to providing high-quality travel and entertainment content solutions."  
+  
+It even includes video impressions of recurring events such as festivals and helps you to plan your activities through a personalized calendar.   
+  
+Great stuff!
+
+Tip for Dutch readers: Nationaal Museum Weekend (10+11 april)

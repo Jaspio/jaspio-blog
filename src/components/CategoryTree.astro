@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import { getPostsForCategory } from '../utils/taxonomy';
+
+interface Props {
+	showCounts?: boolean;
+}
+
+const { showCounts = false } = Astro.props;
+const [categories, posts] = await Promise.all([
+	getCollection('categories'),
+	showCounts ? getCollection('blog') : [],
+]);
+---
+
+<ul class="category-tree">
+	{categories.map((category) => {
+		const depth = category.data.path.split('/').length - 1;
+		const count = getPostsForCategory(category.data.path, categories, posts).length;
+		return (
+			<li style={`--taxonomy-depth: ${depth}`}>
+				<a href={`/category/${category.data.path}/`}>
+					{category.data.name}
+					{showCounts && <> <span class="category-count">({count})</span></>}
+				</a>
+			</li>
+		);
+	})}
+</ul>

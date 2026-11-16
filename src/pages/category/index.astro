@@ -1,0 +1,12 @@
+---
+import CategoryTree from '../../components/CategoryTree.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { SITE_DESCRIPTION } from '../../consts';
+---
+
+<SiteLayout title="Categories" description={SITE_DESCRIPTION} mainClass="taxonomy-index">
+	<header class="taxonomy-header">
+		<h1>Categories</h1>
+	</header>
+	<CategoryTree />
+</SiteLayout>

@@ -213,6 +213,10 @@ textarea {
 	line-height: 1.4;
 }
 
+.sidebar-widget .category-count {
+	color: rgb(255 255 255 / 70%);
+}
+
 .page-content.taxonomy-index {
 	padding: 0 8% 8%;
 }
@@ -463,6 +467,10 @@ pre code {
 	width: 100px;
 	margin: 0 0 1.25rem 1.5rem;
 	text-align: center;
+}
+
+.about-content .about-portrait p {
+	margin: 0;
 }
 
 .about-content .about-portrait img {

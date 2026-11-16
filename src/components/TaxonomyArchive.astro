@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	term: string;
+	kind: 'Category' | 'Tag';
+	posts: CollectionEntry<'blog'>[];
+}
+
+const { term, kind, posts } = Astro.props;
+
+const excerptFor = (body: string) => {
+	const text = body
+		.replace(/<[^>]*>/g, ' ')
+		.replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
+		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+		.replace(/[#>*_`~]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	const words = text.split(' ');
+	return `${words.slice(0, 52).join(' ')}${words.length > 52 ? '...' : ''}`;
+};
+---
+
+<header class="taxonomy-header">
+	<h1>{kind}: {term}</h1>
+</header>
+<section aria-label={`${kind} posts`}>
+	{posts.map((post) => {
+		const excerpt = post.data.excerpt.trim() || excerptFor(post.body ?? '');
+		return (
+			<article class="post">
+				<div class="post-inner">
+					<header class="post-header">
+						<h2 class="post-title"><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+						<p class="post-meta">
+							<FormattedDate date={post.data.pubDate} />
+							{post.data.author && <><span class="date-sep">/</span>{post.data.author}</>}
+						</p>
+					</header>
+					<p class="post-excerpt">{excerpt}</p>
+					<a class="read-more" href={`/blog/${post.id}/`}>Continue reading</a>
+				</div>
+			</article>
+		);
+	})}
+</section>

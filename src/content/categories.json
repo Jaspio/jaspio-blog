@@ -1,0 +1,43 @@
+[
+	{
+		"slug": "browsing",
+		"name": "Browsing"
+	},
+	{
+		"slug": "coding",
+		"name": "Coding",
+		"children": [
+			{ "slug": "asp-net", "name": "ASP.NET" },
+			{ "slug": "sitecore", "name": "Sitecore" },
+			{ "slug": "visual-studio-net", "name": "Visual Studio .NET" }
+		]
+	},
+	{
+		"slug": "entertainment",
+		"name": "Entertainment",
+		"children": [
+			{ "slug": "humour", "name": "Humour" },
+			{ "slug": "movies", "name": "Movies" },
+			{ "slug": "music", "name": "Music" },
+			{ "slug": "tv", "name": "TV" }
+		]
+	},
+	{ "slug": "general", "name": "General" },
+	{ "slug": "misc", "name": "Misc" },
+	{ "slug": "news", "name": "News" },
+	{ "slug": "note-to-self", "name": "Note to Self" },
+	{
+		"slug": "technology",
+		"name": "Technology",
+		"children": [
+			{ "slug": "gadgets-tools", "name": "Gadgets & Tools" },
+			{ "slug": "tools", "name": "Tools" }
+		]
+	},
+	{
+		"slug": "travel",
+		"name": "Travel",
+		"children": [{ "slug": "siteseeing", "name": "Siteseeing" }]
+	},
+	{ "slug": "uncategorized", "name": "Uncategorized" }
+]
