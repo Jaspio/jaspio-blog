@@ -12,6 +12,8 @@ const { term, kind, posts } = Astro.props;
 
 const excerptFor = (body: string) => {
 	const text = body
+		.replace(/^import .*$/gm, ' ')
+		.replace(/<figure[\s\S]*?<\/figure>/g, ' ')
 		.replace(/<[^>]*>/g, ' ')
 		.replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
 		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')

@@ -7,12 +7,20 @@ excerpt: ''
 guid: 'http://www.jaspio.net/wordpress/archives/2006/12/29/trip-to-rome/'
 permalink: /trip-to-rome/
 categories:
-    - General
+    - Travel
 format: false
 ---
 
-<div class="flickr-frame"> [![](http://farm1.static.flickr.com/160/336652985_41c738d84e.jpg)](http://www.flickr.com/photos/86502942@N00/336652985/ "photo sharing")  
- <span class="flickr-caption">[P1000723](http://www.flickr.com/photos/86502942@N00/336652985/), originally uploaded by [Jaspio](http://www.flickr.com/people/86502942@N00/).</span></div> Recently (just before Christmas) I went to visit the glorious city of Rome, Italy.  
+<figure>
+
+[![Holiday photo from Rome](https://farm1.static.flickr.com/160/336652985_41c738d84e.jpg)](https://www.flickr.com/photos/86502942@N00/336652985/ "photo sharing")
+
+<figcaption>
+originally uploaded by <a href="https://www.flickr.com/people/86502942@N00/">Jaspio</a>.
+</figcaption>
+</figure>
+
+Recently (just before Christmas) I went to visit the glorious city of Rome, Italy.  
   
 I made a lot of snaps. The sights were just amazing, the ancient Roman architecture the gorgeous Baroque churches. I really was blown away!  
   

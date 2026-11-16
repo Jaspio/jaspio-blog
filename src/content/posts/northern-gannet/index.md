@@ -11,4 +11,12 @@ categories:
 format: false
 ---
 
-<div style="margin-left: 10px; margin-bottom: 10px;">[![](https://farm4.static.flickr.com/3087/2541382127_59fb4e3669_m.jpg)](https://www.flickr.com/photos/mzahra1/2541382127/ "photo sharing")<span style="font-size: 0.9em; margin-top: 0px;">[Northern Gannet](https://www.flickr.com/photos/mzahra1/2541382127/)</span>Originally uploaded by [Vampire Black Cat](https://www.flickr.com/people/mzahra1/)</div>Amazing shot! One in a million
+<div style="margin-left: 10px; margin-bottom: 10px;">
+
+[![Northern Gannet](https://farm4.static.flickr.com/3087/2541382127_59fb4e3669_m.jpg)](https://www.flickr.com/photos/mzahra1/2541382127/ "photo sharing")
+
+Originally uploaded by [Vampire Black Cat](https://www.flickr.com/people/mzahra1/)
+
+</div>
+
+Amazing shot! One in a million

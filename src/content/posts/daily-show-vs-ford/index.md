@@ -19,7 +19,7 @@ Comedy Central's "The Daily Show" of course!
 In the usual fake-news segment, Jon Stewart took a look at the [news about the impending job cuts at Ford Motor Company](http://news.google.com/news?hl=en&ned=us&ie=UTF-8&ncl=http://www.latimes.com/business/la-fi-ford24jan24,1,5737227.story%3Fcoll%3Dla-headlines-business "Google News collection on Ford Job cuts").
 
 How a picture says a thousand words:  
-![](resserver.php?blogId=2&resource=Daily+Show+-+2006.01.25++-+Ford+is+Fired.png&mode=medium)
+![Ford logo reading Fired](./Daily+Show+-+2006.01.25++-+Ford+is+Fired.png)
 
 Gotta love those graphics!
 

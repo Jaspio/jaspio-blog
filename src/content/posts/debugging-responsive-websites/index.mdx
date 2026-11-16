@@ -32,11 +32,23 @@ For the last few weeks I have been working on the redesign of a website and inte
 
 ## Responsive Preview
 
-A handy tool to get the ball rolling was the responsive preview function that was built in to the CMS. [Umbraco 7.2](http://umbraco.com/follow-us/blog-archive/2014/12/4/umbraco-72-released), a minty fresh version of the popular open source .NET Content Management Server, has a handy preview function that allows the editor to preview their page on different devices by changing the viewport. \[embed\]https://player.vimeo.com/video/113603024\[/embed\] It’s a really handy tool to get a quick impression of how the design will look on differently scaled devices. A big bonus of this feature is that content editors can see for themselves how their content would look and feel on different devices. It was also instrumental in getting them out of the habit of adding manual &lt;br/&gt;s in their content to make it look “just right” on their own machines. 
+A handy tool to get the ball rolling was the responsive preview function that was built in to the CMS. [Umbraco 7.2](http://umbraco.com/follow-us/blog-archive/2014/12/4/umbraco-72-released), a minty fresh version of the popular open source .NET Content Management Server, has a handy preview function that allows the editor to preview their page on different devices by changing the viewport. It’s a really handy tool to get a quick impression of how the design will look on differently scaled devices. A big bonus of this feature is that content editors can see for themselves how their content would look and feel on different devices. It was also instrumental in getting them out of the habit of adding manual &lt;br/&gt;s in their content to make it look “just right” on their own machines. 
 
 ## Chrome Device Mode
 
-Debugging content was one thing, but actually getting into the HTML and CSS was another matter. For that I turned to the great [Device Mode tools](https://developer.chrome.com/devtools/docs/device-mode) built into into recent versions of Google Chrome. These tools up the ante and don’t just manipulate the viewport but also allow you to use the document inspector to evaluate CSS and JavaScript and see how your website is affected by your code. \[caption id="" align="alignnone" width="500"\]![Device Mode in action](https://developer.chrome.com/devtools/docs/device-mode-files/device-mode-initial-view.png "Device Mode in action") Device Mode in action\[/caption\] Other handy features include network throttling (for emulating 2G and 3G mobile phone speeds) and manipulating geolocation data for location-aware HTML5 apps. As handy as these tools are, they still render your web app using the internal web engine of Chrome on the desktop. On the occasion that your website has a bug that only shows up on say on iPhone and not in the Device Mode emulator you’ll have to look further afield. Both Google and Apple have hooks into their devices so that you can debug them remotely. Chrome has the ability to connect to Android devices through a USB cable while the Apple solution allows you to remotely connect to on iOS device if is on the same network and you connect to it from a workstation running MacOS X. 
+Debugging content was one thing, but actually getting into the HTML and CSS was another matter. For that I turned to the great [Device Mode tools](https://developer.chrome.com/devtools/docs/device-mode) built into into recent versions of Google Chrome. These tools up the ante and don’t just manipulate the viewport but also allow you to use the document inspector to evaluate CSS and JavaScript and see how your website is affected by your code.
+
+<figure>
+	<img
+		src="https://developer.chrome.com/static/docs/devtools/device-mode/image/the-dimensions-list-c94d72e725e49_1920.png"
+		alt="Device Mode in action"
+		loading="lazy"
+		decoding="async"
+	/>
+	<figcaption>Device Mode in action</figcaption>
+</figure>
+
+Other handy features include network throttling (for emulating 2G and 3G mobile phone speeds) and manipulating geolocation data for location-aware HTML5 apps. As handy as these tools are, they still render your web app using the internal web engine of Chrome on the desktop. On the occasion that your website has a bug that only shows up on say on iPhone and not in the Device Mode emulator you’ll have to look further afield. Both Google and Apple have hooks into their devices so that you can debug them remotely. Chrome has the ability to connect to Android devices through a USB cable while the Apple solution allows you to remotely connect to on iOS device if is on the same network and you connect to it from a workstation running MacOS X. 
 
 ## Platform agnostic debugging with Weinre
 
@@ -52,7 +64,16 @@ Although the setup is similar for most platforms, I will describe here how I got
 
 ### 1. Installing Node.js
 
-As Weinre requires Node.js to run, the first step involves getting Node.js setup on your machine. Head on over to the [Node.js website](https://nodejs.org/download/) and download the installer for your environment. In my case I downloaded the Windows Installer 64 bit version. \[caption id="" align="alignnone" width="504"\]<a href={nodeSetupFull.src}><Image src={nodeSetup} alt="Setting up Node.js correctly" title="Setting up Node.js correctly" /></a> Setting up Node.js correctly\[/caption\] Make sure that you include the **npm package manager** and **Add to PATH** options as you’ll need those for the next steps. To check if Node.js installed correctly, open a new instance of the Windows Command Prompt and type 
+As Weinre requires Node.js to run, the first step involves getting Node.js setup on your machine. Head on over to the [Node.js website](https://nodejs.org/download/) and download the installer for your environment. In my case I downloaded the Windows Installer 64 bit version.
+
+<figure>
+	<a href={nodeSetupFull.src}>
+		<Image src={nodeSetup} alt="Setting up Node.js correctly" />
+	</a>
+	<figcaption>Setting up Node.js correctly</figcaption>
+</figure>
+
+Make sure that you include the **npm package manager** and **Add to PATH** options as you’ll need those for the next steps. To check if Node.js installed correctly, open a new instance of the Windows Command Prompt and type 
 
 ```
 node –v
@@ -65,7 +86,12 @@ npm –v
 
 ```
 
-\[caption id="" align="alignnone" width="504"\]<a href={nodeVersionFull.src}><Image src={nodeVersion} alt="Checking that Node.js installed correctly" title="Checking that Node.js installed correctly" /></a> Checking that Node.js installed correctly\[/caption\] 
+<figure>
+	<a href={nodeVersionFull.src}>
+		<Image src={nodeVersion} alt="Checking that Node.js installed correctly" />
+	</a>
+	<figcaption>Checking that Node.js installed correctly</figcaption>
+</figure>
 
 ### 2. Installing Weinre
 
@@ -76,7 +102,12 @@ npm –g Weinre
 
 ```
 
-\[caption id="" align="alignnone" width="504"\]<a href={weinreInstallFull.src}><Image src={weinreInstall} alt="Installing Weinre via npm" title="3 weinre" /></a> Installing Weinre via npm\[/caption\] 
+<figure>
+	<a href={weinreInstallFull.src}>
+		<Image src={weinreInstall} alt="Installing Weinre via npm" />
+	</a>
+	<figcaption>Installing Weinre via npm</figcaption>
+</figure>
 
 ### 3. Running Weinre
 
@@ -92,7 +123,16 @@ The **boundHost** flag allows other machines in your network to connect to your 
 weinre –help
 ```
 
-to find the correct flags. \[caption id="" align="alignnone" width="504"\]<a href={weinreCommandFull.src}><Image src={weinreCommand} alt="Running Weinre from the command line" title="4 check" /></a> Running Weinre from the command line\[/caption\] note: you can stop Weinre by calling terminate command using 
+to find the correct flags.
+
+<figure>
+	<a href={weinreCommandFull.src}>
+		<Image src={weinreCommand} alt="Running Weinre from the command line" />
+	</a>
+	<figcaption>Running Weinre from the command line</figcaption>
+</figure>
+
+note: you can stop Weinre by calling terminate command using 
 
 ```
 Ctrl+C
@@ -100,8 +140,33 @@ Ctrl+C
 
 ### 4. Connecting clients to the Weinre server
 
-The final step of setting up Weinre is to inject a piece of JavaScript that points your clients to your Weinre server. The easiest way to do this is to point your browser to [http://localhost:8080](http://localhost:8080) and follow the instructions on screen. You can either choose to inject the needed JavaScript via a bookmarklet or, my preferred method, is to add the target script to the header of your application: \[caption id="" align="alignnone" width="504"\]<a href={weinreWelcomeFull.src}><Image src={weinreWelcome} alt="Example of a target script to add to your web app" title="5 weinre welcome page" /></a> Example of a target script to add to your web app\[/caption\] Note that if you want to connect your devices you will need to change the address from **localhost** to something your clients can reach. Either use a DNS name or the IP address of your server, in my case I used **dotsero.local** to connect to my server named [Dotsero](https://en.wikipedia.org/wiki/Dotsero "Dotsero volcano on Wikipedia.org") (I name all my devices after volcanoes). After you have added the target script to you can go ahead and connect your client(s). On your device, pull up the web app you want to to debug. As it loads it will also pick up the extra JavaScript and connect to your server. 
+The final step of setting up Weinre is to inject a piece of JavaScript that points your clients to your Weinre server. The easiest way to do this is to point your browser to [http://localhost:8080](http://localhost:8080) and follow the instructions on screen. You can either choose to inject the needed JavaScript via a bookmarklet or, my preferred method, is to add the target script to the header of your application:
+
+<figure>
+	<a href={weinreWelcomeFull.src}>
+		<Image src={weinreWelcome} alt="Example of a target script to add to your web app" />
+	</a>
+	<figcaption>Example of a target script to add to your web app</figcaption>
+</figure>
+
+Note that if you want to connect your devices you will need to change the address from **localhost** to something your clients can reach. Either use a DNS name or the IP address of your server, in my case I used **dotsero.local** to connect to my server named [Dotsero](https://en.wikipedia.org/wiki/Dotsero "Dotsero volcano on Wikipedia.org") (I name all my devices after volcanoes). After you have added the target script to you can go ahead and connect your client(s). On your device, pull up the web app you want to to debug. As it loads it will also pick up the extra JavaScript and connect to your server. 
 
 ### 5. Using the remote inspector
 
-With your client connected, you should now be able to use the Remote Inspector. From your server, open up a new browser tab and point it to [http://localhost:8080/client/#anonymous](http://localhost:8080/client/#anonymous "http://localhost:8080/client/#anonymous"). This is the dashboard from which you can select the connected client you wish to inspect. \[caption id="" align="alignnone" width="504"\]<a href={weinreDashboardFull.src}><Image src={weinreDashboard} alt="Connecting to Weinre dashboard" title="image" /></a> Connecting to Weinre dashboard\[/caption\] When your clients are connected, you should see them popup in the **Targets** list. (I won’t paste it here as I don’t want to publish my iPhone’s MAC address). Eh voilà: you should be able to remotely inspect the website on your mobile! \[caption id="" align="alignnone" width="504"\]<a href={iphoneInspectorFull.src}><Image src={iphoneInspector} alt="Inspecting HTML on my iPhone" title="foto" /></a> Inspecting HTML on my iPhone\[/caption\]  
+With your client connected, you should now be able to use the Remote Inspector. From your server, open up a new browser tab and point it to [http://localhost:8080/client/#anonymous](http://localhost:8080/client/#anonymous "http://localhost:8080/client/#anonymous"). This is the dashboard from which you can select the connected client you wish to inspect.
+
+<figure>
+	<a href={weinreDashboardFull.src}>
+		<Image src={weinreDashboard} alt="Connecting to Weinre dashboard" />
+	</a>
+	<figcaption>Connecting to Weinre dashboard</figcaption>
+</figure>
+
+When your clients are connected, you should see them popup in the **Targets** list. (I won’t paste it here as I don’t want to publish my iPhone’s MAC address). Eh voilà: you should be able to remotely inspect the website on your mobile!
+
+<figure>
+	<a href={iphoneInspectorFull.src}>
+		<Image src={iphoneInspector} alt="Inspecting HTML on my iPhone" />
+	</a>
+	<figcaption>Inspecting HTML on my iPhone</figcaption>
+</figure>
