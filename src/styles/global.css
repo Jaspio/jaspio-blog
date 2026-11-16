@@ -85,7 +85,7 @@ textarea {
 	display: block;
 	margin: 0;
 	font-family: var(--font-raleway), sans-serif;
-	font-size: 1.75rem;
+	font-size: 1.75em;
 	font-weight: 700;
 	line-height: 1.2;
 	letter-spacing: 1px;
@@ -104,8 +104,8 @@ textarea {
 	margin: 10px 0 0;
 	color: rgb(255 255 255 / 55%);
 	font-family: var(--font-raleway), sans-serif;
-	font-size: 0.95rem;
-	line-height: 1.45;
+	font-size: 1em;
+	line-height: 1.2;
 }
 
 .sidebar-details > summary {
@@ -151,12 +151,12 @@ textarea {
 }
 
 .sidebar-widget h2 {
-	margin: 0 0 1rem;
+	margin: 0 0 20px;
 	color: var(--paper);
-	font-family: var(--font-lato), sans-serif;
-	font-size: 0.8rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
+	font-family: var(--font-raleway), sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 }
 
@@ -185,13 +185,32 @@ textarea {
 	display: block;
 	padding: 0.2rem 0;
 	color: var(--accent);
-	font-size: 0.88rem;
+	font-size: 0.9em;
 	line-height: 1.45;
 }
 
 .category-tree a:hover,
 .taxonomy-list a:hover {
 	color: var(--paper);
+}
+
+.sidebar-widget .category-tree li,
+.sidebar-widget .sidebar-tags li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.sidebar-widget .category-tree li + li,
+.sidebar-widget .sidebar-tags li + li {
+	margin-top: 0;
+}
+
+.sidebar-widget .category-tree a,
+.sidebar-widget .sidebar-tags a {
+	padding: 0;
+	font-size: 18px;
+	line-height: 1.4;
 }
 
 .page-content.taxonomy-index {
@@ -224,10 +243,10 @@ textarea {
 
 .recent-posts a {
 	display: block;
-	padding: 0.5rem 0;
+	padding: 10px 0;
 	color: var(--accent);
-	font-size: 0.88rem;
-	line-height: 1.45;
+	font-size: 16px;
+	line-height: 1.4;
 }
 
 .recent-posts a:hover {
@@ -237,7 +256,7 @@ textarea {
 .sidebar-about {
 	margin: 0;
 	color: rgb(255 255 255 / 72%);
-	font-size: 0.9rem;
+	font-size: 0.9em;
 	line-height: 1.6;
 }
 
@@ -268,6 +287,32 @@ h6 {
 	line-height: 1.2;
 }
 
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+h5 {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 0.9em;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
 p {
 	margin: 1em 0;
 }
@@ -286,7 +331,7 @@ blockquote {
 	border-left: 4px solid var(--line);
 	color: var(--muted);
 	font-family: var(--font-raleway), sans-serif;
-	font-size: 1.25em;
+	font-size: 1.1em;
 }
 
 code {
@@ -345,7 +390,7 @@ pre code {
 .post-meta {
 	margin: 0 0 1.5rem;
 	color: var(--muted);
-	font-size: 0.8rem;
+	font-size: 0.8em;
 	letter-spacing: 1px;
 	line-height: 1.45;
 	text-transform: uppercase;
@@ -359,7 +404,7 @@ pre code {
 .post-title {
 	margin: 0 0 0.35rem;
 	color: var(--ink);
-	font-size: 2.3rem;
+	font-size: 2.3em;
 	line-height: 1.2;
 }
 
@@ -373,7 +418,7 @@ pre code {
 
 .post-excerpt {
 	margin: 0 0 1.25rem;
-	font-size: 1.075rem;
+	font-size: 1.075em;
 }
 
 .read-more {
@@ -393,7 +438,7 @@ pre code {
 .post-content {
 	min-width: 0;
 	overflow-wrap: anywhere;
-	font-size: 1.075rem;
+	font-size: 1.075em;
 }
 
 .post-content > *:first-child {
@@ -449,7 +494,7 @@ pre code {
 	position: relative;
 	margin: 0 8% 4%;
 	color: var(--muted);
-	font-size: 0.9rem;
+	font-size: 0.9em;
 }
 
 .post-terms p {
@@ -476,7 +521,7 @@ pre code {
 
 .taxonomy-header h1 {
 	margin: 0;
-	font-size: 2rem;
+	font-size: 2em;
 }
 
 .site-footer {
@@ -635,7 +680,7 @@ pre code {
 	}
 
 	.blog-title {
-		font-size: 1.65rem;
+		font-size: 1.65em;
 	}
 
 	.post-inner {
@@ -647,7 +692,7 @@ pre code {
 	}
 
 	.post-title {
-		font-size: 1.65rem;
+		font-size: 1.65em;
 	}
 
 	.site-footer {
