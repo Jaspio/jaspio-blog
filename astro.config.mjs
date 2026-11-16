@@ -6,7 +6,8 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://jaspio.net',
+	site: 'https://jaspio.github.io',
+	base: 'astro_github_pages_jaspio'
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
