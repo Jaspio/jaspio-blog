@@ -24,7 +24,7 @@ The development server runs at `http://localhost:4321` by default.
 
 | Location | Purpose |
 | --- | --- |
-| `src/content/posts/` | Published blog content and colocated images (`blog` collection) |
+| `src/content/blog/` | Published blog content by `YYYY/MM` and colocated images (`blog` collection) |
 | `src/content/pages/` | Page content and colocated images (`pages` collection) |
 | `src/content/categories.json` | Nested category definitions |
 | `src/content/tags.json` | Tag definitions |
@@ -42,7 +42,7 @@ The development server runs at `http://localhost:4321` by default.
 Keep each post or page in its own folder, with its images alongside `index.md` or `index.mdx`:
 
 ```text
-src/content/posts/my-post/
+src/content/blog/2024/06/my-post/
   index.md
   cover.jpg
 

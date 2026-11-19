@@ -31,7 +31,7 @@ These instructions apply throughout this project, regardless of the coding agent
 
 ## Content and assets
 
-- Published posts live in `src/content/posts/<slug>/index.md` or `index.mdx` and belong to the `blog` collection.
+- Published posts live in `src/content/blog/YYYY/MM/<slug>/index.md` or `index.mdx` and belong to the `blog` collection.
 - Page content lives in `src/content/pages/<slug>/index.md` or `index.mdx`; page routes are defined in `src/pages/`.
 - Collection loaders and frontmatter schemas are defined in `src/content.config.ts`. Keep content consistent with those schemas.
 - Colocate post- and page-specific images with their content. Use relative Markdown image paths.

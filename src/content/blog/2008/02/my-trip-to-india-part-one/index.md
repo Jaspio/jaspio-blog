@@ -1,14 +1,14 @@
 ---
 id: 64
-title: 'My Trip To India &#8211; part one'
-date: '2008-02-04T03:20:52+01:00'
-author: Jaspio
+title: My Trip To India - part one
 excerpt: ''
-guid: 'http://www.jaspio.net/wordpress/archives/2008/02/04/my-trip-to-india-part-one/'
-permalink: /my-trip-to-india-part-one/
+date: 2008-02-04T03:20:52+01:00
+author: Jaspio
 categories:
-    - Travel
+- Travel
+permalink: /my-trip-to-india-part-one/
 format: false
+guid: http://www.jaspio.net/wordpress/archives/2008/02/04/my-trip-to-india-part-one/
 ---
 
 As many of my friends and family know, I’ve gone to India to catch up on my Microsoft certifications.

@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import { SITE_TITLE } from '../../../consts';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const years = new Set(posts.map((post) => post.data.pubDate.getFullYear().toString()));
+	return [...years].map((year) => ({ params: { year } }));
+}
+
+const { year } = Astro.params;
+
+// pubDate is parsed in local time, so the local getters match it
+const posts = (
+	await getCollection('blog', ({ data }) => data.pubDate.getFullYear().toString() === year)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Posts are sorted newest first, so each month's posts are contiguous
+const groups = posts.reduce<{ name: string; month: string; posts: typeof posts }[]>((acc, post) => {
+	const month = String(post.data.pubDate.getMonth() + 1).padStart(2, '0');
+	const last = acc.at(-1);
+	if (last && last.month === month) {
+		last.posts.push(post);
+	} else {
+		const name = post.data.pubDate.toLocaleString('en-us', { month: 'long' });
+		acc.push({ name, month, posts: [post] });
+	}
+	return acc;
+}, []);
+---
+
+<SiteLayout title={`${year} | ${SITE_TITLE}`} description={`Posts from ${year}`} mainClass="archive-page">
+	<section aria-label={`Posts from ${year}`}>
+		<h1>Posts from {year}</h1>
+		{
+			groups.map((group) => (
+				<section>
+					<h2>
+						<a href={`/blog/${year}/${group.month}/`}>{group.name}</a>
+					</h2>
+					<ul>
+						{group.posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>{post.data.title}</a>{' '}
+								<FormattedDate date={post.data.pubDate} />
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</section>
+</SiteLayout>

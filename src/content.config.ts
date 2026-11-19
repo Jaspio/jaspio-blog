@@ -31,8 +31,8 @@ const flattenCategories = (text: string) => {
 };
 
 const blog = defineCollection({
-	// Each post lives in src/content/posts/<slug>/index.md beside its images.
-	loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
+	// Each post lives in src/content/blog/YYYY/MM/<slug>/index.md beside its images.
+	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
     schema: ({ image }) => 
 		z.object({

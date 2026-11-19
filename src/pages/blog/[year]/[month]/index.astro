@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../../../layouts/SiteLayout.astro';
+import FormattedDate from '../../../../components/FormattedDate.astro';
+import { SITE_TITLE } from '../../../../consts';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const yearMonths = new Set(
+		posts.map((post) => {
+			const date = post.data.pubDate;
+			const month = String(date.getMonth() + 1).padStart(2, '0');
+			return `${date.getFullYear()}/${month}`;
+		}),
+	);
+	return [...yearMonths].map((yearMonth) => {
+		const [year, month] = yearMonth.split('/');
+		return { params: { year, month } };
+	});
+}
+
+const { year, month } = Astro.params;
+
+// pubDate is parsed in local time, so the local getters match it.
+// getMonth() is zero-based, hence the -1.
+const posts = (
+	await getCollection(
+		'blog',
+		({ data }) =>
+			data.pubDate.getFullYear().toString() === year &&
+			data.pubDate.getMonth() === parseInt(month, 10) - 1,
+	)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const monthName = new Date(Date.UTC(Number(year), Number(month) - 1, 1)).toLocaleString('en-us', {
+	month: 'long',
+	timeZone: 'UTC',
+});
+---
+
+<SiteLayout
+	title={`${monthName} ${year} | ${SITE_TITLE}`}
+	description={`Posts from ${monthName} ${year}`}
+	mainClass="archive-page"
+>
+	<section aria-label={`Posts from ${monthName} ${year}`}>
+		<h1>Posts from {monthName} {year}</h1>
+		<ul>
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/blog/${post.id}/`}>{post.data.title}</a>{' '}
+						<FormattedDate date={post.data.pubDate} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</SiteLayout>
